@@ -1,0 +1,128 @@
+[
+  {
+    "Task": "S1_1",
+    "Priority": "1",
+    "Description": "Server Set Up",
+    "By_who": "Tommy",
+    "Stage": "1"
+  },
+  {
+    "Task": "S1_2",
+    "Priority": "2",
+    "Description": "Meeting (I)",
+    "By_who": "",
+    "Stage": "1"
+  },
+  {
+    "Task": "S1_3",
+    "Priority": "3",
+    "Description": "Frontend creation<br/>expected to due on Thursday",
+    "By_who": "Perry",
+    "Stage": "1"
+  },
+  {
+    "Task": "S1_4",
+    "Priority": "4",
+    "Description": "Backend creation<br/>expected to due on Thursday",
+    "By_who": "David",
+    "Stage": "1"
+  },
+  {
+    "Task": "S1_5",
+    "Priority": "5",
+    "Description": "Frontend creation<br/>expected to due on Thursday <br/> (2)",
+    "By_who": "Sandy",
+    "Stage": "1"
+  },
+  {
+    "Task": "S2_1",
+    "Priority": "1",
+    "Description": "Meeting (II)",
+    "By_who": "",
+    "Stage": "2"
+  },
+  {
+    "Task": "S2_2",
+    "Priority": "2",
+    "Description": "Frontend fixes<br/>expected to due on Monday",
+    "By_who": "Allen",
+    "Stage": "2"
+  },
+  {
+    "Task": "S2_3",
+    "Priority": "3",
+    "Description": "Backend fixes<br/>expected to due on Monday",
+    "By_who": "David",
+    "Stage": "2"
+  },
+  {
+    "Task": "S2_4",
+    "Priority": "4",
+    "Description": "Design changes<br/>expected to due on Friday",
+    "By_who": "Mat",
+    "Stage": "2"
+  },
+  {
+    "Task": "S2_5",
+    "Priority": "5",
+    "Description": "Meeting (III) with <p>Demoooo</p>",
+    "By_who": "",
+    "Stage": "2"
+  },
+  {
+    "Task": "S2_6",
+    "Priority": "6",
+    "Description": "Deployment on AWS",
+    "By_who": "Tommy",
+    "Stage": "2"
+  },
+  {
+    "Task": "S2_7",
+    "Priority": "7",
+    "Description": "Testing and QA",
+    "By_who": "David",
+    "Stage": "2"
+  },
+  {
+    "Task": "S2_8",
+    "Priority": "8",
+    "Description": "<b>(Reserved)</b>",
+    "By_who": "",
+    "Stage": "2"
+  },
+  {
+    "Task": "S2_9",
+    "Priority": "9",
+    "Description": "<b>(Reserved)</b>",
+    "By_who": "",
+    "Stage": "2"
+  },
+  {
+    "Task": "S2_10",
+    "Priority": "10",
+    "Description": "<b>(Reserved)</b>",
+    "By_who": "",
+    "Stage": "2"
+  },
+  {
+    "Task": "S2_11",
+    "Priority": "11",
+    "Description": "<b>(Reserved)</b>",
+    "By_who": "",
+    "Stage": "2"
+  },
+  {
+    "Task": "S3_1",
+    "Priority": "10",
+    "Description": "Finalise the work",
+    "By_who": "David",
+    "Stage": "3"
+  },
+  {
+    "Task": "S3_2",
+    "Priority": "20",
+    "Description": "Submit via email and make sure the repository is kept secret",
+    "By_who": "Tony",
+    "Stage": "3"
+  }
+]
