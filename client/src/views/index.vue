@@ -3,7 +3,22 @@
     <header class="index-header">
       <div></div>
       <div class="index-header__filter">
-        Filter
+        <el-select v-model="sort" placeholder="Sort by stage" size="small">
+          <el-option
+            v-for="item in sortOptions"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
+        <el-select v-model="filter" placeholder="Filter" size="small">
+          <el-option
+            v-for="item in filterOptions"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          ></el-option>
+        </el-select>
       </div>
     </header>
     <StageItem
@@ -46,6 +61,13 @@ export default {
   },
   data() {
     return {
+      sort: "asc",
+      sortOptions: [
+        { label: "Sort by stage (low to high)", value: "desc" },
+        { label: "Sort by stage (high to low)", value: "asc" },
+      ],
+      filter: '',
+      filterOptions: [],
       cardData: [],
     };
   },
@@ -61,7 +83,10 @@ export default {
         }
         swap[item.Stage].cards.push(item);
       });
-      return Object.values(swap);
+      swap = Object.values(swap);
+      if (this.sort === 'desc') swap.sort((self, next) => next.id - self.id);
+      else swap.sort((self, next) => self.id - next.id);
+      return swap;
     },
   },
   methods: {
