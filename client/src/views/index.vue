@@ -33,28 +33,6 @@
 <script>
 import StageItem from "@/components/StageItem.vue";
 
-const $ajax = (type = "GET", url = "", fn, data = {}) => {
-  let request = new XMLHttpRequest();
-  let queryString = Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-  if (type == "POST") {
-    const formHeader = "application/x-www-form-urlencoded; charset=UTF-8";
-    request.setRequestHeader("Content-Type", formHeader);
-  }
-  if (type == "GET") {
-    url = `${url}?${queryString}`;
-  }
-  request.open(type, url, true);
-  request.onreadystatechange = function () {
-    if (this.readyState === 4) {
-      fn & fn(this.status >= 200 && this.status < 400, this);
-    }
-  };
-  request.send(queryString);
-  request = null;
-};
-
 export default {
   components: {
     StageItem,
@@ -63,8 +41,8 @@ export default {
     return {
       sort: "asc",
       sortOptions: [
-        { label: "Sort by stage (low to high)", value: "desc" },
-        { label: "Sort by stage (high to low)", value: "asc" },
+        { label: "Sort by stage (high to low)", value: "desc" },
+        { label: "Sort by stage (low to high)", value: "asc" },
       ],
       filter: '',
       filterOptions: [],
@@ -91,7 +69,7 @@ export default {
   },
   methods: {
     getStageData() {
-      $ajax("GET", "/mock.json", (status, req) => {
+      this.$http("GET", "/mock.json", (status, req) => {
         if (status) {
           let data = JSON.parse(req.responseText);
           this.cardData = data;

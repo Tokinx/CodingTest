@@ -5,12 +5,7 @@
     </div>
     <div class="stage-content">
       <el-row :gutter="20">
-        <v-draggable
-          v-model="cardData"
-          :animation="300"
-          @start="onStart"
-          @end="onEnd"
-        >
+        <v-draggable v-model="cardData" :animation="300" @start="onStart" @end="onEnd">
           <transition-group class="stage-stretch">
             <el-col :md="8" :sm="12" v-for="card of cardData" :key="card.Task">
               <CardItem :card="card" />
@@ -52,7 +47,14 @@ export default {
       console.log("onStart");
     },
     onEnd() {
-      console.log("onEnd");
+      const sorts = this.cardData.map(({ Task }, index) => ({ Task, Priority: index + 1 }));
+      console.log(sorts)
+      this.$http("GET", "/mock.json", (status, req) => {
+        if (status) {
+          // let data = JSON.parse(req.responseText);
+          // this.cardData = data;
+        }
+      }, sorts);
     },
   },
 };
