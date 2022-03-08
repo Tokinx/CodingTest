@@ -1,0 +1,54 @@
+{"k":"0000000078","o":"0000000114","v":"001"}
+{"_id":2,"_uid":2,"_dt":1646708414934,"_s":"7ded78fa6c713a0a07cbc4b4083acd89"}
+{"Task":"S1_1","Priority":1,"Description":"Server Set Up","By_who":"Tommy","Stage":1,"_id":{"$wrap":"$oid","v":2}}
+{"k":"0000000078","o":"0000000095","v":"001"}
+{"_id":3,"_uid":3,"_dt":1646708414936,"_s":"6c5b2a70c2b7215650ff0f2f5ed276a8"}
+{"Task":"S1_2","Priority":2,"Description":"Meeting (I)","Stage":1,"_id":{"$wrap":"$oid","v":3}}
+{"k":"0000000078","o":"0000000150","v":"001"}
+{"_id":4,"_uid":4,"_dt":1646708414937,"_s":"9ee83468bea1a1a720fba7d26619448f"}
+{"Task":"S1_3","Priority":3,"Description":"Frontend creation<br/>expected to due on Thursday","By_who":"Perry","Stage":1,"_id":{"$wrap":"$oid","v":4}}
+{"k":"0000000078","o":"0000000149","v":"001"}
+{"_id":5,"_uid":5,"_dt":1646708414938,"_s":"a1e89ae41e5de3e5d053f1a83185f65f"}
+{"Task":"S1_4","Priority":4,"Description":"Backend creation<br/>expected to due on Thursday","By_who":"David","Stage":1,"_id":{"$wrap":"$oid","v":5}}
+{"k":"0000000078","o":"0000000160","v":"001"}
+{"_id":6,"_uid":6,"_dt":1646708414938,"_s":"1a98de8c276b83847455d2fe54de9b2f"}
+{"Task":"S1_5","Priority":5,"Description":"Frontend creation<br/>expected to due on Thursday <br/> (2)","By_who":"Sandy","Stage":1,"_id":{"$wrap":"$oid","v":6}}
+{"k":"0000000078","o":"0000000096","v":"001"}
+{"_id":7,"_uid":7,"_dt":1646708414939,"_s":"63bd546a39edd69dee4b03c02713fca7"}
+{"Task":"S2_1","Priority":1,"Description":"Meeting (II)","Stage":2,"_id":{"$wrap":"$oid","v":7}}
+{"k":"0000000078","o":"0000000145","v":"001"}
+{"_id":8,"_uid":8,"_dt":1646708414939,"_s":"a677eaea94ef8ec67cc90bc4aed51886"}
+{"Task":"S2_2","Priority":2,"Description":"Frontend fixes<br/>expected to due on Monday","By_who":"Allen","Stage":2,"_id":{"$wrap":"$oid","v":8}}
+{"k":"0000000078","o":"0000000144","v":"001"}
+{"_id":9,"_uid":9,"_dt":1646708414939,"_s":"7afc90bff943310377cc56c0d6efb6f5"}
+{"Task":"S2_3","Priority":3,"Description":"Backend fixes<br/>expected to due on Monday","By_who":"David","Stage":2,"_id":{"$wrap":"$oid","v":9}}
+{"k":"0000000080","o":"0000000144","v":"001"}
+{"_id":10,"_uid":10,"_dt":1646708414940,"_s":"eeda06c866957f3aa2908306ea162fa9"}
+{"Task":"S2_4","Priority":4,"Description":"Design changes<br/>expected to due on Friday","By_who":"Mat","Stage":2,"_id":{"$wrap":"$oid","v":10}}
+{"k":"0000000080","o":"0000000118","v":"001"}
+{"_id":11,"_uid":11,"_dt":1646708414940,"_s":"a38e77a38948f1f85df848a59f93676e"}
+{"Task":"S2_5","Priority":5,"Description":"Meeting (III) with <p>Demoooo</p>","Stage":2,"_id":{"$wrap":"$oid","v":11}}
+{"k":"0000000080","o":"0000000119","v":"001"}
+{"_id":12,"_uid":12,"_dt":1646708414941,"_s":"060908d649856573890d1553fac1e7ec"}
+{"Task":"S2_6","Priority":6,"Description":"Deployment on AWS","By_who":"Tommy","Stage":2,"_id":{"$wrap":"$oid","v":12}}
+{"k":"0000000080","o":"0000000116","v":"001"}
+{"_id":13,"_uid":13,"_dt":1646708414941,"_s":"c93544a2cb5d915e3067e5ce9b5d1bbf"}
+{"Task":"S2_7","Priority":7,"Description":"Testing and QA","By_who":"David","Stage":2,"_id":{"$wrap":"$oid","v":13}}
+{"k":"0000000080","o":"0000000102","v":"001"}
+{"_id":14,"_uid":14,"_dt":1646708414941,"_s":"f8acb50c37cd8d2b1835b3b8997b4d23"}
+{"Task":"S2_8","Priority":8,"Description":"<b>(Reserved)</b>","Stage":2,"_id":{"$wrap":"$oid","v":14}}
+{"k":"0000000080","o":"0000000102","v":"001"}
+{"_id":15,"_uid":15,"_dt":1646708414942,"_s":"f7344e78a79b2c834a61e56109347a14"}
+{"Task":"S2_9","Priority":9,"Description":"<b>(Reserved)</b>","Stage":2,"_id":{"$wrap":"$oid","v":15}}
+{"k":"0000000080","o":"0000000104","v":"001"}
+{"_id":16,"_uid":16,"_dt":1646708414943,"_s":"f37e66c5954e6dc833e04304356e343e"}
+{"Task":"S2_10","Priority":10,"Description":"<b>(Reserved)</b>","Stage":2,"_id":{"$wrap":"$oid","v":16}}
+{"k":"0000000080","o":"0000000104","v":"001"}
+{"_id":17,"_uid":17,"_dt":1646708414943,"_s":"d89f33bf93bffa714c3c13d69ec293dd"}
+{"Task":"S2_11","Priority":11,"Description":"<b>(Reserved)</b>","Stage":2,"_id":{"$wrap":"$oid","v":17}}
+{"k":"0000000080","o":"0000000120","v":"001"}
+{"_id":18,"_uid":18,"_dt":1646708414943,"_s":"572f15c4f0c6dd8d64bba0aa2a413541"}
+{"Task":"S3_1","Priority":10,"Description":"Finalise the work","By_who":"David","Stage":3,"_id":{"$wrap":"$oid","v":18}}
+{"k":"0000000080","o":"0000000162","v":"001"}
+{"_id":19,"_uid":19,"_dt":1646708414944,"_s":"c883af70b63a8762595a6c3d854f4f96"}
+{"Task":"S3_2","Priority":20,"Description":"Submit via email and make sure the repository is kept secret","By_who":"Tony","Stage":3,"_id":{"$wrap":"$oid","v":19}}
