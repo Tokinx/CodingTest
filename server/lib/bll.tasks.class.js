@@ -11,8 +11,13 @@ module.exports = class TasksClass {
 
     async setTask(task) {
         const tingo = new TingoClass();
-        const total = await tingo.find("tasks", { Stage: task.Stage }, { count: true });
-        const result = await tingo.insert("tasks", { ...task, Priority: total.length + 1 });
+        let result = [task];
+        if ('_id' in task) {
+            await tingo.update("tasks", { _id: task._id }, { $set: { ...task } });
+        } else {
+            const total = await tingo.find("tasks", { Stage: task.Stage }, { count: true });
+            result = await tingo.insert("tasks", { ...task, Priority: total.length + 1 });
+        }
         return { code: 0, data: result.pop() };
     }
 

@@ -1,6 +1,6 @@
 <template>
   <el-dialog
-    title="Add Task"
+    :title="title"
     :visible.sync="visible"
     width="600px"
     destroy-on-close
@@ -72,9 +72,19 @@ export default {
       val && (this.form = { Stage: 1, By_who: "Jeff" });
     },
   },
+  computed: {
+    title() {
+      return this.form.id ? "Edit Task" : "Add Task";
+    },
+  },
   methods: {
-    show() {
+    show(task) {
       this.visible = true;
+      if (task) {
+        this.$nextTick(() => {
+          this.form = { ...task };
+        });
+      }
     },
     hide() {
       this.visible = false;

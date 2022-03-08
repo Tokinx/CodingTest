@@ -5,10 +5,13 @@
     </div>
     <div class="stage-content">
       <el-row :gutter="20">
-        <v-draggable v-model="cardData" :animation="300" @end="onEnd">
+        <v-draggable v-model="taskData" :animation="300" @end="onEnd">
           <transition-group class="stage-stretch">
-            <el-col :md="8" :sm="12" v-for="card of cardData" :key="card._id">
-              <CardItem :card="card" />
+            <el-col :md="8" :sm="12" v-for="task of taskData" :key="task._id">
+              <TaskItem
+                :task="task"
+                @edit="() => $emit('edit', task)"
+              />
             </el-col>
           </transition-group>
         </v-draggable>
@@ -18,33 +21,33 @@
 </template>
 
 <script>
-import CardItem from "./CardItem";
+import TaskItem from "./TaskItem";
 export default {
   name: "StageItem",
-  components: { CardItem },
+  components: { TaskItem },
   props: {
     title: String,
-    cards: {
+    tasks: {
       type: Array,
       default: () => [],
     },
   },
   data() {
     return {
-      cardData: [],
+      taskData: [],
     };
   },
   watch: {
-    cards: {
+    tasks: {
       immediate: true,
       handler(val) {
-        this.cardData = JSON.parse(JSON.stringify(val));
+        this.taskData = JSON.parse(JSON.stringify(val));
       },
     },
   },
   methods: {
     onEnd() {
-      const sorts = this.cardData.map(({ _id }, index) => ({
+      const sorts = this.taskData.map(({ _id }, index) => ({
         _id,
         Priority: index + 1,
       }));
@@ -55,7 +58,7 @@ export default {
       })
         .then((res) => res.json())
         .then(() => {
-          this.cardData = this.cardData.map((item, index) => ({
+          this.taskData = this.taskData.map((item, index) => ({
             ...item,
             Priority: index + 1,
           }));
@@ -91,7 +94,7 @@ export default {
     .el-col {
       margin: 0.5rem 0;
     }
-    .card-item {
+    .task-item {
       height: 100%;
     }
   }

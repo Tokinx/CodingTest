@@ -1,8 +1,13 @@
 <template>
   <div class="index">
     <header class="index-header">
-      <div>
-        <el-button type="primary" size="small" @click="handleAddTask">
+      <div class="index-header__add">
+        <el-button
+          type="primary"
+          icon="el-icon-plus"
+          size="small"
+          @click="handleAddTask"
+        >
           Add Task
         </el-button>
       </div>
@@ -39,7 +44,8 @@
       v-for="stage of stageData"
       :key="stage.id"
       :title="`Stage ${stage.id}`"
-      :cards="stage.cards"
+      :tasks="stage.tasks"
+      @edit="handleEdit"
     />
     <SetTask ref="refSetTask" @complete="handleComplete" />
   </div>
@@ -63,32 +69,32 @@ export default {
       ],
       filter: [],
       filterOptions: [],
-      cardData: [],
+      taskData: [],
     };
   },
   created() {
     this.getStageData();
   },
   watch: {
-    cardData: {
+    taskData: {
       deep: true,
       handler(val) {
-        this.filterOptions = [...new Set(val.map(({ Stage }) => Stage))];
+        this.filterOptions = [...new Set(val.map(({ Stage }) => Stage))].sort();
       },
     },
   },
   computed: {
     stageData() {
       let swap = {};
-      for (const item of this.cardData) {
+      for (const item of this.taskData) {
         if (this.filter.length && this.filter.indexOf(item.Stage) < 0) continue;
         if (!swap[item.Stage]) {
           swap[item.Stage] = {
             id: item.Stage,
-            cards: [],
+            tasks: [],
           };
         }
-        swap[item.Stage].cards.push(item);
+        swap[item.Stage].tasks.push(item);
       }
       swap = Object.values(swap);
       if (this.sort === "desc") swap.sort((self, next) => next.id - self.id);
@@ -101,21 +107,24 @@ export default {
       fetch("/api/getStageData")
         .then((res) => res.json())
         .then(({ data }) => {
-          this.cardData = data;
+          this.taskData = data;
         });
     },
     handleAddTask() {
       this.$refs.refSetTask.show();
     },
     handleComplete(task) {
-      const index = this.cardData.findIndex(({ _id }) => _id === task._id);
+      const index = this.taskData.findIndex(({ _id }) => _id === task._id);
       if (index > -1) {
         // Edit
-        // this.splice(index, 0, task);
-        this.getStageData();
+        this.taskData.splice(index, 1, task);
       } else {
-        this.cardData.push(task);
+        // Add
+        this.taskData.push(task);
       }
+    },
+    handleEdit(task) {
+      this.$refs.refSetTask.show(task);
     },
   },
 };

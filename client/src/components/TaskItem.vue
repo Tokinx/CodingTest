@@ -1,13 +1,18 @@
 <template>
-  <div class="card-item">
-    <h3 class="card-title">{{ card.Task }}</h3>
-    <div class="card-body" v-html="card.Description"></div>
-    <div class="card-footer">
-      <div class="card-author">
+  <div class="task-item">
+    <h3 class="task-title">{{ task.Task }}</h3>
+    <div class="task-body" v-html="task.Description"></div>
+    <div class="task-footer">
+      <div class="task-author">
         <el-avatar size="small"></el-avatar>
-        {{ card.By_who }}
+        {{ task.By_who }}
       </div>
-      <div class="card-priority" :style="`background-color: ${color}`">Priority {{ card.Priority }}</div>
+      <div class="task-priority" :style="`background-color: ${color}`">
+        Priority {{ task.Priority }}
+      </div>
+    </div>
+    <div class="task-edit" @click="handleEdit">
+      <i class="el-icon-edit"></i>
     </div>
   </div>
 </template>
@@ -15,9 +20,9 @@
 <script>
 import colorRange from "color-range";
 export default {
-  name: "CardItem",
+  name: "TaskItem",
   props: {
-    card: {
+    task: {
       type: Object,
       default: () => ({}),
     },
@@ -25,20 +30,36 @@ export default {
   computed: {
     color() {
       return colorRange(
-        this.card.Priority * 6 || 0, "HEX", "#E3594C", "#909090");
+        this.task.Priority * 6 || 0,
+        "HEX",
+        "#E3594C",
+        "#909090"
+      );
+    },
+  },
+  methods: {
+    handleEdit() {
+      this.$emit("edit");
     },
   },
 };
 </script>
 
 <style scoped lang="less">
-.card {
+.task {
   &-item {
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 0.15rem;
+    position: relative;
     display: flex;
     flex-direction: column;
+    padding: 1rem;
+    border-radius: 0.15rem;
+    background-color: #fff;
+    &:hover .task-edit {
+      opacity: 0.3;
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
   &-title {
     margin: 0;
@@ -74,6 +95,13 @@ export default {
     padding: 6px 10px;
     border-radius: 0.2rem;
     color: #fff;
+  }
+  &-edit {
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+    transition: 300ms;
+    opacity: 0;
   }
 }
 </style>
