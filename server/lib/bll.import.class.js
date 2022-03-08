@@ -12,7 +12,7 @@ module.exports = class ImportClass {
         const rows = [];
 
         for (let sheet of workSheetsFromFile) {
-            sheet.data.shift() // 过滤表头
+            sheet.data.shift() // Ignore first line
             if (sheet.data.length > 0) {
                 for (let row of sheet.data) {
                     if (row.length < 1 || typeof row != "object") continue;

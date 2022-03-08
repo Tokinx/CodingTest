@@ -8,6 +8,14 @@ module.exports = class TasksClass {
         });
         return { code: 0, data: rows };
     }
+
+    async setTask(task) {
+        const tingo = new TingoClass();
+        const total = await tingo.find("tasks", { Stage: task.Stage }, { count: true });
+        const result = await tingo.insert("tasks", { ...task, Priority: total.length + 1 });
+        return { code: 0, data: result.pop() };
+    }
+
     async setTaskSort(sorts) {
         const tingo = new TingoClass();
         for (const item of sorts) {

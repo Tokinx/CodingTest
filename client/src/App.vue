@@ -18,6 +18,7 @@ body {
   box-sizing: border-box;
 }
 
+.el-textarea,
 .el-input {
   &__inner {
     border-radius: 0;

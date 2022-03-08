@@ -1,7 +1,11 @@
 <template>
   <div class="index">
     <header class="index-header">
-      <div></div>
+      <div>
+        <el-button type="primary" size="small" @click="handleAddTask">
+          Add Task
+        </el-button>
+      </div>
       <div class="index-header__filter">
         <el-select v-model="sort" placeholder="Sort by stage" size="small">
           <i slot="prefix" class="el-input__icon el-icon-sort"></i>
@@ -12,7 +16,15 @@
             :value="item.value"
           ></el-option>
         </el-select>
-        <el-select v-model="filter" placeholder="Filter" size="small" clearable multiple collapse-tags style="width: 150px;">
+        <el-select
+          v-model="filter"
+          placeholder="Filter"
+          size="small"
+          clearable
+          multiple
+          collapse-tags
+          style="width: 150px"
+        >
           <i slot="prefix" class="el-input__icon el-icon-s-operation"></i>
           <el-option
             v-for="stage in filterOptions"
@@ -29,15 +41,18 @@
       :title="`Stage ${stage.id}`"
       :cards="stage.cards"
     />
+    <SetTask ref="refSetTask" @complete="handleComplete" />
   </div>
 </template>
 
 <script>
-import StageItem from "@/components/StageItem.vue";
+import StageItem from "@/components/StageItem";
+import SetTask from "@/components/SetTask";
 
 export default {
   components: {
     StageItem,
+    SetTask,
   },
   data() {
     return {
@@ -53,6 +68,14 @@ export default {
   },
   created() {
     this.getStageData();
+  },
+  watch: {
+    cardData: {
+      deep: true,
+      handler(val) {
+        this.filterOptions = [...new Set(val.map(({ Stage }) => Stage))];
+      },
+    },
   },
   computed: {
     stageData() {
@@ -79,8 +102,20 @@ export default {
         .then((res) => res.json())
         .then(({ data }) => {
           this.cardData = data;
-          this.filterOptions = [...new Set(data.map(({ Stage }) =>Stage))];
         });
+    },
+    handleAddTask() {
+      this.$refs.refSetTask.show();
+    },
+    handleComplete(task) {
+      const index = this.cardData.findIndex(({ _id }) => _id === task._id);
+      if (index > -1) {
+        // Edit
+        // this.splice(index, 0, task);
+        this.getStageData();
+      } else {
+        this.cardData.push(task);
+      }
     },
   },
 };

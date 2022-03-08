@@ -12,6 +12,12 @@ router.get('/getStageData', async (req, res, next) => {
   res.json(result);
 });
 
+router.post('/setTask', async (req, res, next) => {
+  const tasks = new TasksClass();
+  let result = await tasks.setTask(req.body);
+  res.send(result);
+});
+
 router.post('/setTaskSort', async (req, res, next) => {
   const tasks = new TasksClass();
   let result = await tasks.setTaskSort(req.body);
