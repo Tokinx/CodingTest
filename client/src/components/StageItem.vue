@@ -1,5 +1,5 @@
 <template>
-  <div class="stage-item" :style="`background-color: ${stageColor[index] || '#ccc'}`">
+  <div class="stage-item" :style="`background-color: ${stageColor}`">
     <div class="stage-aside">
       <h1 class="stage-title">{{ title }}</h1>
     </div>
@@ -33,8 +33,13 @@ export default {
   data() {
     return {
       taskData: [],
-      stageColor: ["#dfe7ed", "#e4dfed", "#ebdfde"],
     };
+  },
+  computed: {
+    stageColor() {
+      const colors = ["#dfe7ed", "#e4dfed", "#ebdfde"];
+      return colors[index] || "#ccc";
+    },
   },
   watch: {
     tasks: {
