@@ -17,13 +17,13 @@
           ></el-option>
         </el-select>
         <el-select
+          class="filter-stage"
           v-model="filter"
           placeholder="Filter"
           size="small"
           clearable
           multiple
           collapse-tags
-          style="width: 150px"
         >
           <i slot="prefix" class="el-input__icon el-icon-s-operation"></i>
           <el-option
@@ -127,8 +127,42 @@ export default {
     display: flex;
     justify-content: space-between;
     padding: 1rem 0;
-    .el-select {
+    .el-select:not(:first-child) {
       margin-left: 1rem;
+    }
+    .filter-stage {
+      width: 150px;
+    }
+  }
+}
+
+@media (max-width: 40rem) {
+  .index {
+    /deep/ .stage {
+      &-item {
+        flex-direction: column;
+      }
+      &-aside {
+        width: 100%;
+        padding: 1rem;
+      }
+    }
+  }
+}
+@media (max-width: 34rem) {
+  .index {
+    &-header {
+      flex-direction: column;
+      &__filter {
+        .el-select {
+          width: 100%;
+          &,
+          &.filter-stage {
+            margin: 0;
+            margin-top: 0.5rem;
+          }
+        }
+      }
     }
   }
 }

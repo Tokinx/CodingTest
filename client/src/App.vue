@@ -9,7 +9,7 @@ html {
   font-size: 20px;
 }
 body {
-  padding: 1rem;
+  padding: 0 1rem;
   margin: 0;
   background-color: #f9f9f9;
   font-size: 16px;
@@ -24,6 +24,8 @@ body {
     border-radius: 0;
   }
 }
+.el-button,
+.el-dialog,
 .el-select-dropdown{
     border-radius: 0;
 }
