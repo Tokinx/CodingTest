@@ -28,9 +28,10 @@ export default {
 .card {
   &-item {
     background-color: #fff;
-    // border: 1px solid #eee;
     padding: 1rem;
     border-radius: 0.15rem;
+    display: flex;
+    flex-direction: column;
   }
   &-title {
     margin: 0;
@@ -38,6 +39,7 @@ export default {
     margin-bottom: 0.5rem;
   }
   &-body {
+    flex: 1;
     font-size: 0.7rem;
     color: #979797;
   }
