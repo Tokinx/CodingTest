@@ -12,6 +12,12 @@ router.get('/getStageData', async (req, res, next) => {
   res.json(result);
 });
 
+router.post('/setTaskSort', async (req, res, next) => {
+  const tasks = new TasksClass();
+  let result = await tasks.setTaskSort(req.body);
+  res.send(result);
+});
+
 router.get('/import', async (req, res, next) => {
   const _import = new ImportClass();
   let result = await _import.importXlsxData();

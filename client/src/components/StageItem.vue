@@ -5,9 +5,9 @@
     </div>
     <div class="stage-content">
       <el-row :gutter="20">
-        <v-draggable v-model="cardData" :animation="300" @start="onStart" @end="onEnd">
+        <v-draggable v-model="cardData" :animation="300" @end="onEnd">
           <transition-group class="stage-stretch">
-            <el-col :md="8" :sm="12" v-for="card of cardData" :key="card.Task">
+            <el-col :md="8" :sm="12" v-for="card of cardData" :key="card._id">
               <CardItem :card="card" />
             </el-col>
           </transition-group>
@@ -43,18 +43,23 @@ export default {
     },
   },
   methods: {
-    onStart() {
-      console.log("onStart");
-    },
     onEnd() {
-      const sorts = this.cardData.map(({ Task }, index) => ({ Task, Priority: index + 1 }));
-      console.log(sorts)
-      this.$http("GET", "/mock.json", (status, req) => {
-        if (status) {
-          // let data = JSON.parse(req.responseText);
-          // this.cardData = data;
-        }
-      }, sorts);
+      const sorts = this.cardData.map(({ _id }, index) => ({
+        _id,
+        Priority: index + 1,
+      }));
+      fetch("/api/setTaskSort", {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify(sorts),
+      })
+        .then((res) => res.json())
+        .then(() => {
+          this.cardData = this.cardData.map((item, index) => ({
+            ...item,
+            Priority: index + 1,
+          }));
+        });
     },
   },
 };
