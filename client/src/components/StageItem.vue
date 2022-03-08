@@ -93,7 +93,6 @@ export default {
     }
     .card-item {
       height: 100%;
-      border: 1px solid #eee;
     }
   }
   &-stretch {

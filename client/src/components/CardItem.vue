@@ -7,18 +7,25 @@
         <el-avatar size="small"></el-avatar>
         {{ card.By_who }}
       </div>
-      <el-button size="small">Priority {{ card.Priority }}</el-button>
+      <div class="card-priority" :style="`background-color: ${color}`">Priority {{ card.Priority }}</div>
     </div>
   </div>
 </template>
 
 <script>
+import colorRange from "color-range";
 export default {
   name: "CardItem",
   props: {
     card: {
       type: Object,
       default: () => ({}),
+    },
+  },
+  computed: {
+    color() {
+      return colorRange(
+        this.card.Priority * 6 || 0, "HEX", "#E3594C", "#909090");
     },
   },
 };
@@ -42,6 +49,9 @@ export default {
     flex: 1;
     font-size: 0.7rem;
     color: #979797;
+    /deep/ p {
+      margin: 0;
+    }
   }
   &-author,
   &-footer {
@@ -58,6 +68,12 @@ export default {
     .el-avatar {
       margin-right: 0.5rem;
     }
+  }
+  &-priority {
+    font-size: 0.6rem;
+    padding: 6px 10px;
+    border-radius: 0.2rem;
+    color: #fff;
   }
 }
 </style>

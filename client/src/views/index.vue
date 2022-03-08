@@ -12,7 +12,7 @@
             :value="item.value"
           ></el-option>
         </el-select>
-        <el-select v-model="filter" placeholder="Filter" size="small" clearable multiple collapse-tags>
+        <el-select v-model="filter" placeholder="Filter" size="small" clearable multiple collapse-tags style="width: 150px;">
           <i slot="prefix" class="el-input__icon el-icon-s-operation"></i>
           <el-option
             v-for="stage in filterOptions"
@@ -43,8 +43,8 @@ export default {
     return {
       sort: "asc",
       sortOptions: [
-        { label: "Sort by stage (high to low)", value: "desc" },
-        { label: "Sort by stage (low to high)", value: "asc" },
+        { label: "Sort by stage (low to high)", value: "desc" },
+        { label: "Sort by stage (high to low)", value: "asc" },
       ],
       filter: [],
       filterOptions: [],

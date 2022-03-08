@@ -17,4 +17,13 @@ body {
 * {
   box-sizing: border-box;
 }
+
+.el-input {
+  &__inner {
+    border-radius: 0;
+  }
+}
+.el-select-dropdown{
+    border-radius: 0;
+}
 </style>
