@@ -1,12 +1,9 @@
 let TingoClass = require('./bll.tingo.class');
 const xlsx = require('node-xlsx');
-const fs = require('fs');
 const path = require('path');
 
 module.exports = class ImportClass {
     importXlsxData() {
-        fs.unlink(__dirname.replace(path.join("lib"), 'tingodb/tasks'));
-
         const xlsxPath = __dirname.replace(path.join("lib"), 'Raw Data.xlsx');
         const workSheetsFromFile = xlsx.parse(xlsxPath);
         const rows = [];

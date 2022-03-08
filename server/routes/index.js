@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const TasksClass = require('../lib/bll.tasks.class');
+const ImportClass = require('../lib/bll.import.class');
 
 router.get('/', async (req, res, next) => {
   res.send({ code: 0, msg: "rest api ok." });
