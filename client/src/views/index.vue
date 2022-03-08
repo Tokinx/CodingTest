@@ -146,6 +146,11 @@ export default {
   }
 }
 
+/deep/ .set-task-dialog{
+  max-width: 600px;
+  width: 90%;
+}
+
 @media (max-width: 40rem) {
   .index {
     /deep/ .stage {

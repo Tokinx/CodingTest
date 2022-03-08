@@ -2,12 +2,17 @@
   <el-dialog
     :title="title"
     :visible.sync="visible"
-    width="600px"
+    custom-class="set-task-dialog"
     destroy-on-close
   >
     <el-form :model="form" :rules="rules" label-width="100px" ref="form">
       <el-form-item label="Task name" prop="Task">
-        <el-input v-model="form.Task" size="small"></el-input>
+        <el-input
+          v-model="form.Task"
+          size="small"
+          maxlength="50"
+          show-word-limit
+        ></el-input>
       </el-form-item>
       <el-form-item label="Stage" prop="Stage">
         <el-input-number
@@ -16,6 +21,7 @@
           :max="10"
           label="Stage"
           size="small"
+          :disabled="!!form._id"
         />
       </el-form-item>
       <el-form-item label="Description" prop="Description">
@@ -24,10 +30,18 @@
           type="textarea"
           rows="4"
           size="small"
+          maxlength="500"
+          show-word-limit
         ></el-input>
       </el-form-item>
       <el-form-item label="By who" prop="By_who">
-        <el-input v-model="form.By_who" size="small" disabled></el-input>
+        <el-input
+          v-model="form.By_who"
+          size="small"
+          maxlength="50"
+          show-word-limit
+          disabled
+        ></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submit" size="small">Save</el-button>
@@ -74,7 +88,7 @@ export default {
   },
   computed: {
     title() {
-      return this.form.id ? "Edit Task" : "Add Task";
+      return this.form._id ? "Edit Task" : "Add Task";
     },
   },
   methods: {

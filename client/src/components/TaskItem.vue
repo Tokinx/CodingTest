@@ -65,13 +65,16 @@ export default {
     margin: 0;
     font-size: 1rem;
     margin-bottom: 0.5rem;
+    word-break: break-all;
   }
   &-body {
     flex: 1;
     font-size: 0.7rem;
     color: #979797;
+    word-break: break-all;
     /deep/ p {
       margin: 0;
+      word-break: break-all;
     }
   }
   &-author,
@@ -86,8 +89,10 @@ export default {
   &-author {
     justify-content: flex-start;
     font-size: 0.7rem;
+    word-break: break-all;
     .el-avatar {
       margin-right: 0.5rem;
+      flex-shrink: 0;
     }
   }
   &-priority {
@@ -95,6 +100,7 @@ export default {
     padding: 6px 10px;
     border-radius: 0.2rem;
     color: #fff;
+    flex: none;
   }
   &-edit {
     position: absolute;

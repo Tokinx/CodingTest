@@ -38,7 +38,7 @@ export default {
   computed: {
     stageColor() {
       const colors = ["#dfe7ed", "#e4dfed", "#ebdfde"];
-      return colors[index] || "#ccc";
+      return colors[this.index] || "#ccc";
     },
   },
   watch: {
