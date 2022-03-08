@@ -1,6 +1,6 @@
 <template>
   <div class="card-item">
-    <h3 class="card-title">Task name</h3>
+    <h3 class="card-title">{{ card.Task }}</h3>
     <div class="card-body" v-html="card.Description"></div>
     <div class="card-footer">
       <div class="card-author">

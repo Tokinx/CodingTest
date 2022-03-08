@@ -69,11 +69,8 @@ export default {
   },
   methods: {
     getStageData() {
-      this.$http("GET", "/mock.json", (status, req) => {
-        if (status) {
-          let data = JSON.parse(req.responseText);
-          this.cardData = data;
-        }
+      fetch('/api/getStageData').then(res => res.json()).then(rv => {
+        this.cardData = rv.data;
       });
     },
   },
