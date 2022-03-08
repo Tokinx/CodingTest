@@ -41,9 +41,10 @@
       </div>
     </header>
     <StageItem
-      v-for="stage of stageData"
+      v-for="(stage, index) of stageData"
       :key="stage.id"
       :title="`Stage ${stage.id}`"
+      :index="index"
       :tasks="stage.tasks"
       @edit="handleEdit"
     />
